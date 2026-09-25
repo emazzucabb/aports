@@ -11,7 +11,7 @@
              "-no-canonical-prefixes",
          )
 +    qnx = repository_ctx.os.name.lower().find("qnx") != -1
-+    if qnx and "-no-canonical-prefixes" in opt and _is_clang(repository_ctx, cc):
++    if qnx and _is_clang(repository_ctx, cc):
 +        # QNX's gcc wrapper invokes Clang through PATH, so resolving the wrapper
 +        # cannot preserve Clang's resource path. Discover it before disabling
 +        # canonicalization to keep compiler headers available through wrappers.
